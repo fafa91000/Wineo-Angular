@@ -36,7 +36,7 @@ export class BouteilleCreationComponent {
     constructor(private bouteilleService: BouteilleService) { }
 
     ajouterBouteille(bouteille: Bouteille) {
-        this.bouteilleService.ajouterBouteille(bouteille);
+        this.bouteilleService.ajouterBouteille(bouteille).then();
     }
 
 }

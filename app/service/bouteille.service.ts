@@ -15,7 +15,7 @@ export class BouteilleService {
     }
 
     ajouterBouteille(bouteille: Bouteille) {
-        CAVE.push(bouteille);
+        return new Promise<number>(resolve => CAVE.push(bouteille));
     }
 
 }
