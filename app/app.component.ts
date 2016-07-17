@@ -45,7 +45,13 @@ export class AppComponent implements OnInit {
 
     // Obtenir toutes les bouteilles de la cave
     obtenirBouteilles() {
-        this.cave = this.bouteilleService.obtenirBouteilles();
+
+        /*
+         *  Nous résolvons de manière asynchrone l'opération.
+         *  Nous obtenons une promesse de résultat du service des bouteilles.
+         *  Lors que l'opération a été résolue (réussie ou échouée), nous obtenons les bouteilles.
+         */
+        this.bouteilleService.obtenirBouteilles().then(bouteilles => this.cave = bouteilles);
     }
 
     // Hook d'initialisation
