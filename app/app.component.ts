@@ -1,11 +1,6 @@
 import {Component} from '@angular/core';
-
-export class Bouteille {
-    reference:string;
-    designation:string;
-    contenance:number;
-    annee:number;
-}
+import {Bouteille} from './bouteille';
+import {BouteilleDetailComponent} from './bouteille-detail.component';
 
 @Component({
     selector: 'wineo',
@@ -14,7 +9,7 @@ export class Bouteille {
             <h1>Stockage de bouteille en ligne</h1>
             
             <div id="listeBouteilles">
-                <h2>Fiches des bouteilles</h2>
+                <h2>Liste des bouteilles</h2>
                 
                 <ul>
                     <li *ngFor="let bouteille of cave" (click)="onSelect(bouteille)">
@@ -22,25 +17,11 @@ export class Bouteille {
                     </li>
                 </ul>
             </div>
-         
-            <div id="detailBouteille" *ngIf="bouteilleSelectionnee">
-                <h2>Détail de la bouteille sélectionnée</h2>
-                
-                <div>Référence : {{ bouteilleSelectionnee.reference }}</div>
-                <div>
-                    <label>Désignation :</label>
-                    <input [(ngModel)]="bouteilleSelectionnee.designation" />
-                </div>
-                <div>
-                    <label>Année :</label>
-                    <input [(ngModel)]="bouteilleSelectionnee.annee" />
-                </div>
-                <div>
-                    <label>Contenance :</label>
-                    <input [(ngModel)]="bouteilleSelectionnee.contenance" />
-                </div>
-            </div>
-        `
+            
+            <bouteille-detail [bouteille]="bouteilleSelectionnee"></bouteille-detail>
+        `,
+
+    directives: [BouteilleDetailComponent]
 })
 
 export class AppComponent {
