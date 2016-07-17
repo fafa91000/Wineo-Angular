@@ -14,9 +14,13 @@ export class BouteilleService {
         return new Promise<Bouteille[]>(resolve => setTimeout(() => resolve(CAVE), tempsLatence));
     }
 
+    ajouterBouteille(bouteille: Bouteille) {
+        CAVE.push(bouteille);
+    }
+
 }
 
-const CAVE: Bouteille[] = [
+var CAVE: Bouteille[] = [
     {
         reference: 'XFRDFOPZD',
         designation: 'Lambrusco',
