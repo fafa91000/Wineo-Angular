@@ -8,15 +8,7 @@ import {BouteilleService} from "./service/bouteille.service";
 
     selector: 'wineo',
 
-    template: `
-        <h1>Stockage de bouteille en ligne</h1>
-        
-        <nav>
-            <a [routerLink]="['/bouteilles']">Lister les bouteilles</a>
-            <a [routerLink]="['/bouteille']">Ajouter une bouteille</a>
-        </nav>
-        <router-outlet></router-outlet>  
-    `,
+    templateUrl: 'app/app.component.html',
 
     directives: [ROUTER_DIRECTIVES],
 

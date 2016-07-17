@@ -6,19 +6,7 @@ import {BouteilleService} from '../service/bouteille.service';
 @Component({
     selector: 'bouteille-liste',
 
-    template: `
-            <div id="listeBouteilles">
-                <h2>Liste des bouteilles</h2>
-                
-                <ul>
-                    <li *ngFor="let bouteille of cave" (click)="onSelect(bouteille)">
-                        <div>{{ bouteille.reference }}</div>
-                    </li>
-                </ul>
-            </div>
-            
-            <bouteille-detail [bouteille]="bouteilleSelectionnee"></bouteille-detail>
-        `,
+    templateUrl: 'app/composant/bouteille-liste.component.html',
 
     directives: [BouteilleDetailComponent]
 

@@ -6,26 +6,7 @@ import {BouteilleService} from "../service/bouteille.service";
 
     selector: 'bouteille-creation',
 
-    template:`
-        <h2>Ajouter une nouvelle bouteille</h2>
-        <div>
-            <label>Référence :</label>
-            <input [(ngModel)]="bouteille.reference" />
-        </div>
-        <div>
-            <label>Désignation :</label>
-            <input [(ngModel)]="bouteille.designation" />
-        </div>
-        <div>
-            <label>Année :</label>
-            <input [(ngModel)]="bouteille.annee" />
-        </div>
-        <div>
-            <label>Contenance :</label>
-            <input [(ngModel)]="bouteille.contenance" />
-        </div>
-        <button (click)="ajouterBouteille(bouteille)">OK</button>
-    `
+    templateUrl: 'app/composant/bouteille-creation.component.html'
 
 })
 
