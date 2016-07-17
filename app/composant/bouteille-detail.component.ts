@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {Bouteille} from './bouteille';
+import {Bouteille} from '../domain/bouteille';
 
 @Component({
 

@@ -3,8 +3,8 @@
 /tmp
 
 # typescript
-/app/*.js
-/app/*.map
+/app/**/*.js
+/app/**/*.map
 
 # dependencies
 /node_modules

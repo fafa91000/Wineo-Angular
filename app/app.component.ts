@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
-import {Bouteille} from './bouteille';
-import {BouteilleDetailComponent} from './bouteille-detail.component';
+import {Component, OnInit} from '@angular/core';
+import {Bouteille} from './domain/bouteille';
+import {BouteilleDetailComponent} from './composant/bouteille-detail.component';
+import {BouteilleService} from './service/bouteille.service';
 
 @Component({
     selector: 'wineo',
@@ -21,44 +22,35 @@ import {BouteilleDetailComponent} from './bouteille-detail.component';
             <bouteille-detail [bouteille]="bouteilleSelectionnee"></bouteille-detail>
         `,
 
-    directives: [BouteilleDetailComponent]
+    directives: [BouteilleDetailComponent],
+
+    providers: [BouteilleService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-    cave = CAVE;
+    // Collection de bouteilles de la cave
+    cave: Bouteille[];
 
+    // Bouteille sélectionnée
     bouteilleSelectionnee: Bouteille;
 
+    // Constructeur public du composant
+    constructor(private bouteilleService: BouteilleService) { }
+
+    // Réagir à la sélection d'une bouteille dans la liste
     onSelect(bouteille: Bouteille) {
         this.bouteilleSelectionnee= bouteille;
     }
 
-}
-
-const CAVE: Bouteille[] = [
-    {
-        reference: 'XFRDFOPZD',
-        designation: 'Lambrusco',
-        contenance: 0.75,
-        annee: 2014
-    },
-    {
-        reference: 'DUHGJWJE',
-        designation: 'Sauvignon',
-        contenance: 0.75,
-        annee: 2011
-    },
-    {
-        reference: 'PWETPWET',
-        designation: 'Champagne',
-        contenance: 1,
-        annee: 2012
-    },
-    {
-        reference: 'JAVACKK',
-        designation: 'Chablis',
-        contenance: 0.75,
-        annee: 2011
+    // Obtenir toutes les bouteilles de la cave
+    obtenirBouteilles() {
+        this.cave = this.bouteilleService.obtenirBouteilles();
     }
-];
+
+    // Hook d'initialisation
+    ngOnInit() {
+        this.obtenirBouteilles();
+    }
+
+}
